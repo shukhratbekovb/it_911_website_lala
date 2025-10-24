@@ -95,7 +95,7 @@ class LeadManager:
             raise NotFound(f"Lead with id {lead_id} not found")
         return LeadResponse.model_validate(lead)
 
-    @redis_cache(prefix="leads:list", ttl=120)
+    # @redis_cache(prefix="leads:list", ttl=120)
     async def get_leads(
             self,
             status: list[StatusEnum] = None,
