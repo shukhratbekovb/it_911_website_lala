@@ -69,7 +69,7 @@ class UserManager:
             raise NotFound("User not found")
         await self.repo.delete(user)
 
-    # @redis_cache(prefix="users:list", ttl=120)
+    @redis_cache(prefix="users:list", ttl=120)
     async def get_users(
             self,
             is_superuser: bool = None,

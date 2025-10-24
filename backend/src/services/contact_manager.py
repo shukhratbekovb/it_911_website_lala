@@ -62,7 +62,7 @@ class ContactManager:
             raise NotFound(f"Contact {contact_id} not found")
         return contact
 
-    # @redis_cache(prefix="contacts:list", ttl=120)
+    @redis_cache(prefix="contacts:list", ttl=120)
     async def list(
             self,
             query: str = None,
